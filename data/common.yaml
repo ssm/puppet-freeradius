@@ -1,1 +1,4 @@
 ---
+freeradius::packages:
+  - freeradius
+  - freeradius-utils
