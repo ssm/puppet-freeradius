@@ -23,11 +23,11 @@ describe 'freeradius::config' do
 
       it { is_expected.to compile }
 
-      it { is_expected.to contain_concat('/etc/raddb/users') }
+      it { is_expected.to contain_concat('/etc/raddb/mods-config/files/authorize') }
 
       it {
         is_expected.to contain_concat__fragment('bob')
-          .with_target('/etc/raddb/users')
+          .with_target('/etc/raddb/mods-config/files/authorize')
       }
     end
   end

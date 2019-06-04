@@ -20,7 +20,7 @@ class freeradius::config (
 ) {
 
   # Parameter
-  $users_file = "${config_dir}/users"
+  $users_file = "${config_dir}/mods-config/files/authorize"
 
   # Manage users
   concat { $users_file:
