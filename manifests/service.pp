@@ -1,9 +1,10 @@
-# @summary A short summary of the purpose of this class
+# @summary Manage the FreeRADIUS service
 #
-# A description of what this class does
+# This class manages the FreeRADIUS service.
 #
 # @example
-#   include freeradius::service
+#   include freeradius
+# @api private
 class freeradius::service (String $service) {
   service { $service:
     ensure => running,

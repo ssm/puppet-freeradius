@@ -1,9 +1,9 @@
-# @summary A short summary of the purpose of this class
+# @summary Install the FreeRADIUS packages.
 #
-# A description of what this class does
+# This class installs the FreeRADIUS packages.
 #
 # @example
-#   include freeradius::install
+#   include freeradius
 # @api private
 class freeradius::install (Array[String] $packages) {
 

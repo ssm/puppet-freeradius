@@ -9,7 +9,7 @@
 #  user file. The 'target' is set automatically
 #
 # @example
-#   include freeradius::config
+#   include freeradius
 # @api private
 class freeradius::config (
   Stdlib::Absolutepath $config_dir,

@@ -5,6 +5,8 @@
   "summary": "Manage the FreeRADIUS server",
   "license": "Apache-2.0",
   "source": "https://github.com/ssm/puppet-freeradius",
+  "issues_url": "https://github.com/ssm/puppet-freeradius/issues",
+  "project_page": "https://github.com/ssm/puppet-freeradius",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",

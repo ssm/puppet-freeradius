@@ -38,18 +38,23 @@ for the `$users` parameter.
 ## Usage
 
 The users are provided to the module as a hash of "concat::fragment"
-resources. The important bits are the "content" and "order"
-parameters. The "content" must contain one (or more) user definitions
-for the radius "mods-config/files/authorize" file.
+resources. The important bits are the "content" or "source" and
+"order" parameters.
 
-Also, in this file, order matters. The concat resource will order the
-fragments, you explicit using the .
+The "content" or "source" must contain one (or more) user definitions
+for the radius "mods-config/files/authorize" file, on the FreeRADIUS
+configuration format.
+
+Order matters in the authorize file. The concat resource will order
+the fragments according to its defaults, so you should order them
+using the "order" parameter.
 
 
 ```puppet
 $users = {
   'bob' => {
     content => '"bob" Cleartext-Password := "hello"'
+    order   => '101',
   }
 }
 

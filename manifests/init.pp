@@ -8,7 +8,8 @@
 #
 # @param users
 #   A hash of concat::fragment resources used for building the
-#   conf-module/files/authorize file containing users.
+#   conf-module/files/authorize file containing users. The "target" is
+#   set, you should provide "content" or "source", as well as "order".
 # @param packages
 #   The list of packages to install. Defaults from module data to
 #   match OS family.
@@ -24,6 +25,10 @@
 # @param config_mode
 #   The permissions on the configuration files. Defaults from module
 #   data to match OS family.
+# @param config_dir
+#   The root of the configuration directory. Defaults from module
+#   data to match OS family.
+#
 class freeradius (
   Array[String] $packages,
   String $service,
