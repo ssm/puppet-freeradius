@@ -1,2 +1,6 @@
 ---
 freeradius::service: radiusd
+freeradius::config_dir: /etc/raddb
+freeradius::config_owner: root
+freeradius::config_group: radiusd
+freeradius::config_mode: "0640"

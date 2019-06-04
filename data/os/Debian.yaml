@@ -1,2 +1,6 @@
 ---
 freeradius::service: freeradius
+freeradius::config_dir: /etc/freeradius/3.0
+freeradius::config_owner: freerad
+freeradius::config_group: freerad
+freeradius::config_mode: "0640"
