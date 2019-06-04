@@ -1,9 +1,29 @@
-# @summary A short summary of the purpose of this class
+# @summary Manage FreeRADIUS
 #
-# A description of what this class does
+# This module manages the FreeRADIUS package, service, and a tiny bit
+# of configuration.
 #
 # @example
 #   include freeradius
+#
+# @param users
+#   A hash of concat::fragment resources used for building the
+#   conf-module/files/authorize file containing users.
+# @param packages
+#   The list of packages to install. Defaults from module data to
+#   match OS family.
+# @param service
+#   The service to manage. Defaults from module data to match OS
+#   family.
+# @param config_owner
+#   The user owning the configuration file. Defaults from module data
+#   to match OS family.
+# @param config_group
+#   The group owning the configuration file. Defaults from module data
+#   to match OS family.
+# @param config_mode
+#   The permissions on the configuration files. Defaults from module
+#   data to match OS family.
 class freeradius (
   Array[String] $packages,
   String $service,
