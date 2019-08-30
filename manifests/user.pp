@@ -17,6 +17,7 @@ define freeradius::user (
     target  => $target,
     order   => $order,
     content => $content,
+    notify  => Class['freeradius::service'],
   }
 
 }
