@@ -32,18 +32,10 @@ describe 'freeradius::config' do
       it { is_expected.to compile }
 
       it { is_expected.to contain_concat('/etc/raddb/mods-config/files/authorize') }
-
-      it {
-        is_expected.to contain_concat__fragment('bob')
-          .with_target('/etc/raddb/mods-config/files/authorize')
-          .with_content(%r{bob})
-      }
+      it { is_expected.to contain_freeradius__user('bob') }
 
       it { is_expected.to contain_concat('/etc/raddb/clients.conf') }
-      it {
-        is_expected.to contain_concat__fragment('box')
-          .with_content(%r{client box})
-      }
+      it { is_expected.to contain_freeradius__client('box') }
     end
   end
 end

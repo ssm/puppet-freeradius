@@ -31,9 +31,8 @@ class freeradius::config (
     group => $config_group,
     mode  => $config_mode,
   }
-  $users.each |$user, $user_params| {
-    $params = $user_params + { 'target' => $users_file }
-    concat::fragment { $user:
+  $users.each |$user, $params| {
+    freeradius::user { $user:
       * => $params,
     }
   }
