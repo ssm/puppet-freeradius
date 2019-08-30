@@ -1,9 +1,24 @@
-# @summary A short summary of the purpose of this defined type.
+# @summary Manage freeradius users
 #
-# A description of what this defined type does
+# Manage freeradius users. This creates a fragment added to the
+# authorize file.
+#
+# @param order
+#   Optional parameter for concat::fragment.
+#
+# @param content
+#   Text content for the user definition. See
+#   https://freeradius.org/radiusd/man/users.txt for format
+#   documentation.
 #
 # @example
-#   freeradius::user { 'namevar': }
+#   freeradius::user { 'bob':
+#     content => "\"bob\" Cleartext-Password == \"changeme\"\n"
+#   }
+#   freeradius::user { 'DEFAULT':
+#     order   => 01,
+#     content => "\"bob\" Cleartext-Password == \"changeme\"\n",
+#   }
 define freeradius::user (
   String $content,
   Optional[Variant[String,Integer]] $order = undef,

@@ -2,8 +2,18 @@
 #
 # A description of what this defined type does
 #
+# @param attributes
+#   Client attributes. See
+#   https://freeradius.org/radiusd/man/clients.conf.html for
+#   documentation.
+#
 # @example
-#   freeradius::client { 'namevar': }
+#   freeradius::client { 'box':
+#     attributes => {
+#       ipaddr => '2001:db8::/64',
+#       secret => 'changeme',
+#     }
+#   }
 define freeradius::client (
   String $client = $title,
   Hash[String, String] $attributes = {},
