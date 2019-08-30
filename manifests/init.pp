@@ -37,6 +37,7 @@ class freeradius (
   String $config_group,
   String $config_mode,
   Hash $users = {},
+  Hash $clients = {},
 ) {
 
   class { 'freeradius::install':
@@ -45,6 +46,7 @@ class freeradius (
 
   class { 'freeradius::config':
     users        => $users,
+    clients      => $clients,
     config_dir   => $config_dir,
     config_owner => $config_owner,
     config_group => $config_group,

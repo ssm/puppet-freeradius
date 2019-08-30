@@ -17,10 +17,13 @@ class freeradius::config (
   String $config_group,
   String $config_mode,
   Hash $users,
+  Hash $clients,
 ) {
 
   # Parameter
-  $users_file = "${config_dir}/mods-config/files/authorize"
+
+  $clients_file = "${config_dir}/clients.conf"
+  $users_file   = "${config_dir}/mods-config/files/authorize"
 
   # Manage users
   concat { $users_file:
@@ -31,6 +34,18 @@ class freeradius::config (
   $users.each |$user, $user_params| {
     $params = $user_params + { 'target' => $users_file }
     concat::fragment { $user:
+      * => $params,
+    }
+  }
+
+  # Manage clients
+  concat { $clients_file:
+    owner => $config_owner,
+    group => $config_group,
+    mode  => $config_mode,
+  }
+  $clients.each | $client, $params| {
+    freeradius::client { $client:
       * => $params,
     }
   }

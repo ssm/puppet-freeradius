@@ -10,11 +10,19 @@ describe 'freeradius::config' do
           config_owner: 'root',
           config_group: 'radiusd',
           config_mode: '0640',
+          clients: {
+            box: {
+              attributes: {
+                ipaddr: '2001:db8::/64',
+                secret: 'changeme',
+              },
+            },
+          },
           users: {
             bob: {
               content: <<-EOF
-              bob    Cleartext-Password := "hello"
-                Reply-Message := "Hello, %{User-Name}"
+              bob Cleartext-Password := "hello"
+              	Reply-Message := "Hello, %{User-Name}"
               EOF
             },
           },
@@ -28,6 +36,13 @@ describe 'freeradius::config' do
       it {
         is_expected.to contain_concat__fragment('bob')
           .with_target('/etc/raddb/mods-config/files/authorize')
+          .with_content(%r{bob})
+      }
+
+      it { is_expected.to contain_concat('/etc/raddb/clients.conf') }
+      it {
+        is_expected.to contain_concat__fragment('box')
+          .with_content(%r{client box})
       }
     end
   end
