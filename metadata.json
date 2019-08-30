@@ -1,6 +1,6 @@
 {
   "name": "ssm-freeradius",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Stig Sandbeck Mathisen",
   "summary": "Manage the FreeRADIUS server",
   "license": "Apache-2.0",
