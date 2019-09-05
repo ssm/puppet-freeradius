@@ -27,9 +27,10 @@ class freeradius::config (
 
   # Manage users
   concat { $users_file:
-    owner => $config_owner,
-    group => $config_group,
-    mode  => $config_mode,
+    owner          => $config_owner,
+    group          => $config_group,
+    mode           => $config_mode,
+    ensure_newline => true,
   }
   $users.each |$user, $params| {
     freeradius::user { $user:
@@ -39,9 +40,10 @@ class freeradius::config (
 
   # Manage clients
   concat { $clients_file:
-    owner => $config_owner,
-    group => $config_group,
-    mode  => $config_mode,
+    owner          => $config_owner,
+    group          => $config_group,
+    mode           => $config_mode,
+    ensure_newline => true,
   }
   $clients.each | $client, $params| {
     freeradius::client { $client:
