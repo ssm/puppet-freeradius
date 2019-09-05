@@ -34,7 +34,6 @@ define freeradius::client (
   concat::fragment { $client:
     target  => $target,
     content => inline_epp($client_template, {'client' => $client, 'attributes' => $attributes}),
-    notify  => Class['freeradius::service'],
   }
 
 }
