@@ -2,6 +2,8 @@
 #
 # A description of what this defined type does
 #
+# @param client The name of the client definition
+#
 # @param attributes
 #   Client attributes. See
 #   https://freeradius.org/radiusd/man/clients.conf.html for
