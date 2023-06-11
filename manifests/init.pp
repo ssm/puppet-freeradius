@@ -39,7 +39,6 @@ class freeradius (
   Hash $users = {},
   Hash $clients = {},
 ) {
-
   class { 'freeradius::install':
     packages => $packages,
   }
@@ -52,7 +51,7 @@ class freeradius (
     config_group => $config_group,
     config_mode  => $config_mode,
     require      => Class['freeradius::install'],
-    notify       => Class['freeradius::service']
+    notify       => Class['freeradius::service'],
   }
 
   class { 'freeradius::service':

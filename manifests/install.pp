@@ -6,9 +6,7 @@
 #   include freeradius
 # @api private
 class freeradius::install (Array[String] $packages) {
-
   package { $packages:
-    ensure => present
+    ensure => present,
   }
-
 }

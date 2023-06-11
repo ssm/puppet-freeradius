@@ -18,22 +18,20 @@ define freeradius::client (
   String $client = $title,
   Hash[String, String] $attributes = {},
 ) {
-
   $config_dir = lookup('freeradius::config_dir')
   $target = "${config_dir}/clients.conf"
 
   $client_template = @(CLIENT)
-  <% | String $client, Hash[String, String] $attributes | -%>
-  client <%= $client %> {
-    <%- $attributes.each |$key, $value| { -%>
+    <% | String $client, Hash[String, String] $attributes | -%>
+    client <%= $client %> {
+      <%- $attributes.each |$key, $value| { -%>
       <%= $key %> = <%= $value %>
-    <%- } -%>
-  }
-  | CLIENT
+      <%- } -%>
+    }
+    | CLIENT
 
   concat::fragment { $client:
     target  => $target,
-    content => inline_epp($client_template, {'client' => $client, 'attributes' => $attributes}),
+    content => inline_epp($client_template, { 'client' => $client, 'attributes' => $attributes }),
   }
-
 }

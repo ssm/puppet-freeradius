@@ -19,7 +19,6 @@ class freeradius::config (
   Hash $users,
   Hash $clients,
 ) {
-
   # Parameter
 
   $clients_file = "${config_dir}/clients.conf"

@@ -24,7 +24,6 @@ define freeradius::user (
   Optional[Variant[String,Integer]] $order = undef,
   String $user = $title,
 ) {
-
   $config_dir = lookup('freeradius::config_dir')
   $target = "${config_dir}/mods-config/files/authorize"
 
@@ -33,5 +32,4 @@ define freeradius::user (
     order   => $order,
     content => $content,
   }
-
 }
