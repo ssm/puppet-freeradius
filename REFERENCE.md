@@ -18,8 +18,8 @@
 
 ### Defined types
 
-* [`freeradius::client`](#freeradiusclient): A short summary of the purpose of this defined type.
-* [`freeradius::user`](#freeradiususer): Manage freeradius users
+* [`freeradius::client`](#freeradius--client): A short summary of the purpose of this defined type.
+* [`freeradius::user`](#freeradius--user): Manage freeradius users
 
 ## Classes
 
@@ -40,16 +40,16 @@ include freeradius
 
 The following parameters are available in the `freeradius` class:
 
-* [`users`](#users)
-* [`packages`](#packages)
-* [`service`](#service)
-* [`config_owner`](#config_owner)
-* [`config_group`](#config_group)
-* [`config_mode`](#config_mode)
-* [`config_dir`](#config_dir)
-* [`clients`](#clients)
+* [`users`](#-freeradius--users)
+* [`packages`](#-freeradius--packages)
+* [`service`](#-freeradius--service)
+* [`config_owner`](#-freeradius--config_owner)
+* [`config_group`](#-freeradius--config_group)
+* [`config_mode`](#-freeradius--config_mode)
+* [`config_dir`](#-freeradius--config_dir)
+* [`clients`](#-freeradius--clients)
 
-##### <a name="users"></a>`users`
+##### <a name="-freeradius--users"></a>`users`
 
 Data type: `Hash`
 
@@ -59,49 +59,49 @@ set, you should provide "content" or "source", as well as "order".
 
 Default value: `{}`
 
-##### <a name="packages"></a>`packages`
+##### <a name="-freeradius--packages"></a>`packages`
 
 Data type: `Array[String]`
 
 The list of packages to install. Defaults from module data to
 match OS family.
 
-##### <a name="service"></a>`service`
+##### <a name="-freeradius--service"></a>`service`
 
 Data type: `String`
 
 The service to manage. Defaults from module data to match OS
 family.
 
-##### <a name="config_owner"></a>`config_owner`
+##### <a name="-freeradius--config_owner"></a>`config_owner`
 
 Data type: `String`
 
 The user owning the configuration file. Defaults from module data
 to match OS family.
 
-##### <a name="config_group"></a>`config_group`
+##### <a name="-freeradius--config_group"></a>`config_group`
 
 Data type: `String`
 
 The group owning the configuration file. Defaults from module data
 to match OS family.
 
-##### <a name="config_mode"></a>`config_mode`
+##### <a name="-freeradius--config_mode"></a>`config_mode`
 
 Data type: `String`
 
 The permissions on the configuration files. Defaults from module
 data to match OS family.
 
-##### <a name="config_dir"></a>`config_dir`
+##### <a name="-freeradius--config_dir"></a>`config_dir`
 
 Data type: `Stdlib::Absolutepath`
 
 The root of the configuration directory. Defaults from module
 data to match OS family.
 
-##### <a name="clients"></a>`clients`
+##### <a name="-freeradius--clients"></a>`clients`
 
 Data type: `Hash`
 
@@ -111,7 +111,7 @@ Default value: `{}`
 
 ## Defined types
 
-### <a name="freeradiusclient"></a>`freeradius::client`
+### <a name="freeradius--client"></a>`freeradius::client`
 
 A description of what this defined type does
 
@@ -132,10 +132,18 @@ freeradius::client { 'box':
 
 The following parameters are available in the `freeradius::client` defined type:
 
-* [`attributes`](#attributes)
-* [`client`](#client)
+* [`client`](#-freeradius--client--client)
+* [`attributes`](#-freeradius--client--attributes)
 
-##### <a name="attributes"></a>`attributes`
+##### <a name="-freeradius--client--client"></a>`client`
+
+Data type: `String`
+
+The name of the client definition
+
+Default value: `$title`
+
+##### <a name="-freeradius--client--attributes"></a>`attributes`
 
 Data type: `Hash[String, String]`
 
@@ -145,15 +153,7 @@ documentation.
 
 Default value: `{}`
 
-##### <a name="client"></a>`client`
-
-Data type: `String`
-
-
-
-Default value: `$title`
-
-### <a name="freeradiususer"></a>`freeradius::user`
+### <a name="freeradius--user"></a>`freeradius::user`
 
 Manage freeradius users. This creates a fragment added to the
 authorize file.
@@ -176,19 +176,19 @@ freeradius::user { 'DEFAULT':
 
 The following parameters are available in the `freeradius::user` defined type:
 
-* [`order`](#order)
-* [`content`](#content)
-* [`user`](#user)
+* [`order`](#-freeradius--user--order)
+* [`content`](#-freeradius--user--content)
+* [`user`](#-freeradius--user--user)
 
-##### <a name="order"></a>`order`
+##### <a name="-freeradius--user--order"></a>`order`
 
 Data type: `Optional[Variant[String,Integer]]`
 
 Optional parameter for concat::fragment.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="content"></a>`content`
+##### <a name="-freeradius--user--content"></a>`content`
 
 Data type: `String`
 
@@ -196,7 +196,7 @@ Text content for the user definition. See
 https://freeradius.org/radiusd/man/users.txt for format
 documentation.
 
-##### <a name="user"></a>`user`
+##### <a name="-freeradius--user--user"></a>`user`
 
 Data type: `String`
 
